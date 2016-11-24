@@ -35,7 +35,7 @@ class RootController @Autowired constructor(val personRepository: PersonReposito
             lastName = "Hossain"
         }
 
-        personRepository.deleteAll()
+        //personRepository.deleteAll()
         personRepository.save(person1)
         personRepository.save(person2)
         personRepository.save(person3)

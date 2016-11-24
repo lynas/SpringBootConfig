@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner
 
 @RunWith(SpringRunner::class)
 @SpringBootTest
-class EomsBotApplicationTests {
+class SpringBootNeo4jApplicationTests {
 
 	@Test
 	fun contextLoads() {

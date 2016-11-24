@@ -2,26 +2,27 @@ package com.lynas.controller
 
 import com.lynas.model.Person
 import com.lynas.repo.PersonRepository
+import org.apache.log4j.Logger
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
 
 /**
-* Created by lynas on 11/24/2016
-*/
+ * Created by lynas on 11/24/2016
+ */
 
 @Controller
-class RootController @Autowired constructor(val personRepository: PersonRepository){
+class RootController @Autowired constructor(val personRepository: PersonRepository, val logger: Logger) {
 
     @RequestMapping("/")
-    fun root():String {
-
+    fun root(): String {
+        logger.error("error message")
         return "home"
     }
 
 
     @RequestMapping("/repo")
-    fun repo():String {
+    fun repo(): String {
         val person1 = Person().apply {
             firstName = "Sazzad"
             lastName = "Islam"

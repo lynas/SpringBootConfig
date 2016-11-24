@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
 @SpringBootApplication
-open class EomsBotApplication
+open class ApplicationStarter
 
 fun main(args: Array<String>) {
-    SpringApplication.run(EomsBotApplication::class.java, *args)
+    SpringApplication.run(ApplicationStarter::class.java, *args)
 }

@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.lynas</groupId>
-	<artifactId>eoms-bot</artifactId>
+	<artifactId>spring-boot-config</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>eoms-bot</name>
-	<description>EOMS using Spring Boot</description>
+	<description>Functionality test of Spring boot</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>

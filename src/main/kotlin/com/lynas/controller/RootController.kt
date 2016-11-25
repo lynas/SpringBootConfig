@@ -8,21 +8,21 @@ import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.RequestMapping
 
 /**
- * Created by lynas on 11/24/2016
- */
+* Created by lynas on 11/24/2016
+*/
 
 @Controller
-class RootController @Autowired constructor(val personRepository: PersonRepository, val logger: Logger) {
+class RootController @Autowired constructor(val personRepository: PersonRepository,  val logger: Logger){
 
     @RequestMapping("/")
-    fun root(): String {
-        logger.error("error message")
+    fun root():String {
+        logger.error("Error")
         return "home"
     }
 
 
     @RequestMapping("/repo")
-    fun repo(): String {
+    fun repo():String {
         val person1 = Person().apply {
             firstName = "Sazzad"
             lastName = "Islam"
@@ -36,7 +36,7 @@ class RootController @Autowired constructor(val personRepository: PersonReposito
             lastName = "Hossain"
         }
 
-        //personRepository.deleteAll()
+        personRepository.deleteAll()
         personRepository.save(person1)
         personRepository.save(person2)
         personRepository.save(person3)

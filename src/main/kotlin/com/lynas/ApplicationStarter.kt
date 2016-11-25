@@ -5,6 +5,7 @@ import org.apache.log4j.Logger
 import org.neo4j.ogm.config.Configuration
 import org.springframework.beans.factory.InjectionPoint
 import org.springframework.boot.SpringApplication
+
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Scope
@@ -14,10 +15,11 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 
-@EnableTransactionManagement
 @EnableNeo4jRepositories
+@EnableTransactionManagement
 @SpringBootApplication
-open class SpringBootNeo4jApplication(val interceptorConfig: InterceptorConfig) : WebMvcConfigurerAdapter() {
+open class ApplicationStarter (val interceptorConfig: InterceptorConfig) : WebMvcConfigurerAdapter() {
+
     @Bean
     open fun getConfiguration(): Configuration {
         val config = Configuration()
@@ -27,25 +29,22 @@ open class SpringBootNeo4jApplication(val interceptorConfig: InterceptorConfig) 
         return config
     }
 
-
     @Bean
     @Scope("prototype")
     open fun logger(injectionPoint: InjectionPoint): Logger {
         return Logger.getLogger(injectionPoint.member.declaringClass)
     }
 
-
     override fun addInterceptors(registry: InterceptorRegistry?) {
         super.addInterceptors(registry)
-        registry?.addInterceptor(interceptorConfig)
+        //registry?.addInterceptor(interceptorConfig)
     }
 }
 
-fun main(args: Array<String>) {
-    SpringApplication.run(SpringBootNeo4jApplication::class.java, *args)
-}
-
-
 object AppConstant {
     val organization = "ORGANIZATION"
+}
+
+fun main(args: Array<String>) {
+    SpringApplication.run(ApplicationStarter::class.java, *args)
 }
